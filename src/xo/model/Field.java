@@ -34,7 +34,7 @@ public class Field {
     }
 
     private  boolean checkPoint (final Point point) {
-        if (checkCoordinate(point.x) || checkCoordinate(point.y)) {
+        if (checkCoordinate(point.x) && checkCoordinate(point.y)) {
             return true;
         }
         return false;
