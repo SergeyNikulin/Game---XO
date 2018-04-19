@@ -1,7 +1,6 @@
 package xo.model;
 
 import xo.model.exceptions.InvalidCoordinateException;
-import xo.model.exceptions.XOException;
 
 import java.awt.*;
 
@@ -42,7 +41,7 @@ public class Field {
     }
 
     private boolean checkCoordinate (final int coordinate) {
-        if (coordinate > 0 && coordinate < filedSize) {
+        if (coordinate >= 0 && coordinate < filedSize) {
             return true;
         }
         return false;
