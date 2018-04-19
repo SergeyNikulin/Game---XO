@@ -173,4 +173,117 @@ public class FieldTest {
             fail();
         } catch (final InvalidCoordinateException e) {}
     }
+
+    @Test
+    public void testSetFigureWhenXIsLessZero() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+        final int MIN_COORDINATE = 0;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(MIN_COORDINATE-1,0);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenYIsLessZero() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+        final int MIN_COORDINATE = 0;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(0,MIN_COORDINATE-1);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenXAndYIsLessZero() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+        final int MIN_COORDINATE = 0;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(MIN_COORDINATE-1,MIN_COORDINATE-1);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenXIsMoreSize() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(fieldSize,0);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenYIsMoreSize() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(0,fieldSize);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenXAndYIsMoreSize() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(fieldSize,fieldSize);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenXIsLessZeroAndYIsMoreSize() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+        final int MIN_COORDINATE = 0;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(MIN_COORDINATE-1,fieldSize);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+    @Test
+    public void testSetFigureWhenXIsMoreSizeAndYIsLessZero() throws InvalidCoordinateException {
+        final int fieldSize = 3;
+        final int MIN_COORDINATE = 0;
+
+        Field field = new Field(fieldSize);
+        final Point point = new Point(fieldSize,MIN_COORDINATE-1);
+
+        try {
+            field.setFigure(point, null);
+            fail();
+        } catch (final InvalidCoordinateException e) {}
+    }
+
+
+
+
 }
