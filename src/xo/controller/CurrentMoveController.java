@@ -8,13 +8,18 @@ import java.awt.*;
 
 public class CurrentMoveController {
 
-    public Figure currentMove (final Field field) throws InvalidCoordinateException {
+    public Figure currentMove (final Field field)  {
         int countFigure = 0;
 
         for (int indexLine = 0 ; indexLine < field.getSize(); indexLine++) {
             for (int indexColumn = 0; indexColumn < field.getSize(); indexColumn++) {
-                if (field.getFigure(new Point(indexLine, indexColumn)) != null) {
-                    countFigure +=1;
+                try {
+                    if (field.getFigure(new Point(indexLine, indexColumn)) != null) {
+                        countFigure +=1;
+                    }
+                } catch (InvalidCoordinateException e) {
+                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
             }
         }
