@@ -8,18 +8,23 @@ import java.awt.*;
 
 public class WinnerController {
 
-    public Figure getWinner (Field field) throws InvalidCoordinateException {
-        if (winnerLine(field, Figure.X) ||
-                winnerColumn(field, Figure.X) ||
-                winnerDiagonal1(field, Figure.X) ||
-                winnerDiagonal2(field, Figure.X)) {
-            return Figure.X;
-        }
-        if (winnerLine(field, Figure.O) ||
-                winnerColumn(field, Figure.O) ||
-                winnerDiagonal1(field, Figure.O) ||
-                winnerDiagonal2(field, Figure.O)) {
-            return Figure.O;
+    public Figure getWinner (final Field field)  {
+        try {
+            if (winnerLine(field, Figure.X) ||
+                    winnerColumn(field, Figure.X) ||
+                    winnerDiagonal1(field, Figure.X) ||
+                    winnerDiagonal2(field, Figure.X)) {
+                return Figure.X;
+            }
+
+            if (winnerLine(field, Figure.O) ||
+                    winnerColumn(field, Figure.O) ||
+                    winnerDiagonal1(field, Figure.O) ||
+                    winnerDiagonal2(field, Figure.O)) {
+                return Figure.O;
+            }
+        } catch (InvalidCoordinateException e) {
+            e.printStackTrace();
         }
         return null;
     }
