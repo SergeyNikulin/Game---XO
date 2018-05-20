@@ -6,6 +6,7 @@ import xo.controller.WinnerController;
 import xo.model.Field;
 import xo.model.Figure;
 import xo.model.Game;
+import xo.model.Player;
 import xo.model.exceptions.AlreadOccupiedException;
 import xo.model.exceptions.InvalidCoordinateException;
 
@@ -23,8 +24,7 @@ public class XOView {
 
     public void show (Game game) {
         Field field = game.getField();
-        System.out.println("Game name: " + game.getName());
-        System.out.println();
+        showInfoGame(game);
         for (int index = 0; index < field.getSize(); index++) {
             if (index !=0) {
                 separatedLine();
@@ -113,6 +113,14 @@ public class XOView {
            }
 
             System.out.print(" ");
+        }
+        System.out.println();
+    }
+
+    private void showInfoGame (Game game) {
+        System.out.println("Game name: " + game.getName());
+        for (Player player: game) {
+            System.out.format("Player: %s Figure: %s \n",  player.getName(), player.getFigure());
         }
         System.out.println();
     }
